@@ -6,7 +6,7 @@
 /*   By: baouragh <baouragh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:48:42 by alassiqu          #+#    #+#             */
-/*   Updated: 2024/09/07 17:53:42 by baouragh         ###   ########.fr       */
+/*   Updated: 2024/09/08 19:04:39 by baouragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ void	check_hd_expand(t_token *tokens)
 {
 	while (tokens)
 	{
+		if (tokens->type == WORD && tokens->next
+			&& tokens->next->value && !ft_strcmp(tokens->next->value, ""))
+			tokens->next->quoted_af = 1;
+		else if (tokens->type == WORD && tokens->prev
+			&& tokens->prev->value && !ft_strcmp(tokens->prev->value, ""))
+			tokens->quoted_af = 1;
 		if (tokens->type == LL_REDIR)
 		{
 			tokens = tokens->next;

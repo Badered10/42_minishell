@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baouragh <baouragh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alassiqu <alassiqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 11:11:46 by alassiqu          #+#    #+#             */
-/*   Updated: 2024/09/07 17:50:58 by baouragh         ###   ########.fr       */
+/*   Updated: 2024/09/08 18:37:35 by alassiqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ void	check_for_value(t_token **tokens, char *new, int flag)
 		(*tokens) = tmp;
 	}
 	else if (contains_space(new))
+	{
+		printf("allo\n");
 		handle_space(*tokens, new, flag);
+	}
 	else
 		(*tokens)->value = new;
 }
