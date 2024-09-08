@@ -6,7 +6,7 @@
 /*   By: baouragh <baouragh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 02:03:45 by alassiqu          #+#    #+#             */
-/*   Updated: 2024/09/07 18:10:56 by baouragh         ###   ########.fr       */
+/*   Updated: 2024/09/08 16:34:56 by baouragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,11 @@ void	clean_fds(t_node *ast)
 		}
 		clean_fds(red->node);
 	}
+}
+
+void	close_fds(int *pfd, int *fd_io)
+{
+	fd_closer(pfd, 2);
+	fd_closer(fd_io, g_minishell->size);
+	g_minishell->size = 2;
 }
